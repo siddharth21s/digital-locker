@@ -1,0 +1,75 @@
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+C:\Users\SIDDHARTH>psql -U postgres -h localhost
+Password for user postgres:
+psql (9.6.1)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \d upload
+                                 Table "public.upload"
+ Column  |         Type          |                      Modifiers
+
+---------+-----------------------+-----------------------------------------------------
+ id      | integer               | not null default nextval('upload_id_seq'::regclass)
+ name    | character varying(30) |
+ type    | character varying(30) |
+ size    | integer               |
+ content | bytea                 |
+Indexes:
+    "upload_pkey" PRIMARY KEY, btree (id)
+
+
+postgres=#
+
+
+postgres=# \d pro_con_det;
+                                   Table "public.pro_con_det"
+ Column |          Type          |                          Modifiers
+
+--------+------------------------+--------------------------------------------------------------
+ con_id | integer                | not null default nextval('pro_con_det_con_id_seq'::regclass)
+ fname  | character varying(30)  |
+ mname  | character varying(30)  |
+ lname  | character varying(30)  |
+ gender | character varying(10)  |
+ dob    | character varying(20)  |
+ padd   | character varying(100) |
+ tadd   | character varying(100) |
+ email  | character varying(30)  |
+ mob    | text                   |
+Indexes:
+    "pro_con_det_pkey" PRIMARY KEY, btree (con_id)
+    "pro_con_det_email_key" UNIQUE CONSTRAINT, btree (email)
+    "pro_con_det_mob_key" UNIQUE CONSTRAINT, btree (mob)
+
+	
+	
+	
+	
+postgres=# create table pro_doc(doc_count serial primary key,docno text unique,doc char(50),name varchar(50),type varchar(30),size int,content bytea);
+CREATE TABLE
+postgres=#
+
+
+postgres=# \d pro_doc;
+                                     Table "public.pro_doc"
+  Column   |         Type          |                          Modifiers
+
+-----------+-----------------------+-------------------------------------------------------------
+ doc_count | integer               | not null default nextval('pro_doc_doc_count_seq'::regclass)
+ docno     | text                  |
+ doc       | character(50)         |
+ name      | character varying(50) |
+ type      | character varying(30) |
+ size      | integer               |
+ content   | bytea                 |
+Indexes:
+    "pro_doc_pkey" PRIMARY KEY, btree (doc_count)
+    "pro_doc_docno_key" UNIQUE CONSTRAINT, btree (docno)
+
+
+

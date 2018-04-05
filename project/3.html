@@ -1,0 +1,83 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Register</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    
+</head>
+<body>
+<!-- Navigation -->
+     <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="2.html">Previous Page</a>
+                    </li>
+                    
+                   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+          </header>
+    <!--End Navigation -->
+<form method="post" >
+<br><br><br>
+<fieldset><legend><strong>NOTE</strong></legend>
+<p>> All fields are complusory</p>
+<p>> Upload scanned images of Aadhar card, light bill and Ration Card,image size should be less than 2mb</p>
+
+
+</fieldset>
+</form>
+
+<form action="3.php" method="post" enctype="multipart/form-data">
+<div class="col-md-5 col-sm-5">
+<div class="col-md-12 col-sm-12">
+<fieldset><legend><b>Upload Documents</b></legend>
+<p><b>1. Aadharcard: </b><br> 
+no:<input type="text" required="required" class="form-control" name="adcdno" >
+
+IMG:<input type="file" required="required" class="form-control" name="adcdimg"></p>
+
+<p><b>2. Light Bill</b><br>consumer no:<input type="text" required="required" class="form-control" name="ltblno" >
+
+IMG:<input type="file" required="required" class="form-control" name="ltblimg"></p>
+
+<p><b>3. Ration Card: </b><br> no:<input type="text" required="required" class="form-control" name="rncdno" >
+
+IMG:<input type="file" required="required" class="form-control" name="rncdimg"></p>
+
+<fieldset><legend>Other documents to be Uploaded</legend><p><b>Document </b><select name="document"><option value="Pan card">Pan card</option><option>Driving License</option><option>Passport</option></select>
+
+<br> no:<input type="text" class="form-control" >
+
+IMG:<input type="file" class="form-control" ><input type="submit" value="Upload Image" name="submit"></p>
+
+							</fieldset>	
+<div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save & Continue </button><button type="reset" class="btn btn-success">Reset</button>
+                                </div>
+							
+</fieldset></div></div>
+</form>
+
+
+</html>

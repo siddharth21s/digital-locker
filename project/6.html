@@ -1,0 +1,100 @@
+<?php session_start();?>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Register</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    
+</head>
+
+
+
+<?php
+$host= "localhost";
+	$user = "postgres";
+	$pass = "7387838949";
+	$db = "postgres";
+
+	$con = pg_connect("host=$host dbname=$db user=$user password=$pass") or die("could not connect to serve\n");
+	echo $log=$_SESSION['log'];echo $pass=$_SESSION['pass'];
+	$query="select * from pro_con_det where email='$log'" or die('error');
+	$result= pg_query($query) or die('query errror');
+	while($row = pg_fetch_array($result)){
+	?>
+
+<body>
+<!-- Navigation -->
+     <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="2.html">Previous Page</a>
+                    </li>
+                    
+                   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+          </header>
+    <!--End Navigation -->
+	
+	
+	<form method="get" action="7.html">
+	<br>
+<br><br>
+	<div class="col-md-5 col-sm-5">
+<div class="col-md-12 col-sm-12">
+<fieldset><legend><b>Your Information</b></legend>
+<div>
+<p><b>Name: </b><input type="text" name="fnmx" value="<?php echo $row['fname'];?>"></p><p><b>  Middle:</b><input type="text" name="mnmx" value="<?php echo $row['mname'];?>"></p><p><b>   Last:</b><input type="text" name="lnmx" value="<?php echo $row['lname'];?>"></p>
+</div>
+<div class="form-group"><p><b>Gender:</b><input type="text" name="genx" value="<?php echo $row['gender'];?>"><br>
+</p></div>
+<b>DOB</b>(dd-mm-yyyy)<b>:<input type="text" name="dobx" value="<?php echo $row['dob'];?>"></b>
+<p><b>Address:</b><input type="text" name="paddx" value="<?php echo $row['padd'];?>"></p>
+<p><b>Temporary Address:</b><input type="text" name="taddx" value="<?php echo $row['tadd'];?>"></p>
+<p><b>Em@il Address</b><input type="text" name="emailx" value="<?php echo $row['email'];?>"></p>
+<p><b>Mobile No:</b><input type="text" name="mobx" value="<?php echo $row['mob'];?>"></p>
+	<br>
+
+<fieldset><legend><b>Upload Documents</b></legend>
+<p><b>1. Aadharcard: Status: Verified </b><br>no:<br><br><a>IMG</a></p>
+<p><b>2. Light BillStatus: Verified</b><br>consumer no:<br><br><a>IMG:</a></p>
+<p><b>3. Ration Card: Status: Verified</b><br> no:<br><br><a>IMG:</a></p>
+<p><b>4. Pan Card: Status: Verified</b><br> no:<br><br><a>IMG:</a></p>
+<p><b>5. Driving License: Status: Verified</b><br> no:<br><br><a>IMG:</a></p>
+<p><b>6. Passport: Status: Verified</b><br> no:<br><br><a>IMG:</a></p>
+							</fieldset>	
+
+
+	
+<div class="form-group">
+                                    <button type="submit" class="btn btn-success">Save & Continue </button><button type="reset" class="btn btn-success">Edit</button>
+                                </div>
+	</div></div>						
+</fieldset></form>
+<?php
+}
+?>
+</body>
+</html>
+	
+	
